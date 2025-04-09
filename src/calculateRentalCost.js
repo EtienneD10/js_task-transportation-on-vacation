@@ -11,16 +11,17 @@ function calculateRentalCost(days) {
   const LONG_TERM_DISCOUNT = 50;
   const MEDIUM_TERM_RENTAL_DAYS = 3;
   const MEDIUM_TERM_DISCOUNT = 20;
+  const BASE_PRICE = days * PRICE_PER_DAY;
 
   if (days >= LONG_TERM_RENTAL_DAYS) {
-    return PRICE_PER_DAY * days - LONG_TERM_DISCOUNT;
+    return BASE_PRICE - LONG_TERM_DISCOUNT;
   }
 
   if (days >= MEDIUM_TERM_RENTAL_DAYS) {
-    return PRICE_PER_DAY * days - MEDIUM_TERM_DISCOUNT;
+    return BASE_PRICE - MEDIUM_TERM_DISCOUNT;
   }
 
-  return PRICE_PER_DAY * days;
+  return BASE_PRICE;
 }
 
 module.exports = calculateRentalCost;
